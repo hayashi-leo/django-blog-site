@@ -5,5 +5,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.post_list, name='post_list')    # map home url to post_list class in view
+    url(r'^$', views.post_list, name='post_list'),    # map home url to post_list class in view
+    url(r'^potato/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
 ]

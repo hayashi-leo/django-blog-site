@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -11,5 +12,15 @@ def post_list(request):
     return render(request,
                   'blog/post_list.html',    # template
                   {'posts':posts})                       # context, a dictionary of key-values injected into django template for rendering
+
+
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    details = Post.objects.filter(pk=pk)
+    return render(request,
+                  'blog/post_detail.html',
+                  {'post':post})
+
 
 
